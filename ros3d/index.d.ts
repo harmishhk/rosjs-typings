@@ -126,7 +126,7 @@ declare namespace ROS3D {
      *   * whiteness (optional) - blends rgb values to white (0..100)
      *   * varianceThreshold (optional) - threshold for variance filter, used for compression artifact removal
      */
-    onstructor(options: {
+    constructor(options: {
       url: string,
       streamType?: string,
       f?: number,
@@ -197,7 +197,7 @@ declare namespace ROS3D {
      * @param objects - the objects list to check
      * @param renderList - the list to add to
      */
-    getWebglObjects(scene: THREE.Scene, objects, renderList): void;
+    getWebglObjects(scene: THREE.Scene, objects: any, renderList: any): void;
 
     /**
      * Add the current target of the mouseover to the hover list.
@@ -249,7 +249,7 @@ declare namespace ROS3D {
      * @param control - the control to use
      * @param event3d - the event that caused this
      */
-    buttonClick(control: InteractiveMarkerControl, event3d: any): void;
+    buttonClick(control: InteractiveMarkerControl, event3d: event3D): void;
 
     /**
      * Free memory of elements in this marker.
@@ -271,7 +271,7 @@ declare namespace ROS3D {
      * @param origAxis - the origin of the axis
      * @param event3d - the event that caused this
      */
-    moveAxis(control: InteractiveMarkerControl, origAxis: any, event3d: any): void;
+    moveAxis(control: InteractiveMarkerControl, origAxis: any, event3d: event3D): void;
 
     /**
      * Move with respect to the plane based on the contorl and event.
@@ -280,7 +280,7 @@ declare namespace ROS3D {
      * @param origNormal - the normal of the origin
      * @param event3d - the event that caused this
      */
-    movePlane(control: InteractiveMarkerControl, origNormal: any, event3d: any): void;
+    movePlane(control: InteractiveMarkerControl, origNormal: any, event3d: event3D): void;
 
     /**
      * Update the marker based when the pose is set from the server.
@@ -296,7 +296,7 @@ declare namespace ROS3D {
      * @param origOrientation - the orientation of the origin
      * @param event3d - the event that caused this
      */
-    rotateAxis(control: InteractiveMarkerControl, origOrientation: any, event3d: any): void;
+    rotateAxis(control: InteractiveMarkerControl, origOrientation: any, event3d: event3D): void;
 
     /**
      * Handle a user pose change for the orientation.
@@ -328,7 +328,7 @@ declare namespace ROS3D {
      * @param control - the control to use
      * @param event3d - the event that caused this
      */
-    startDrag(control: InteractiveMarkerControl, event3d: any): void;
+    startDrag(control: InteractiveMarkerControl, event3d: event3D): void;
 
     /**
      * Stop a drag action.
@@ -336,7 +336,7 @@ declare namespace ROS3D {
      * @param control - the control to use
      * @param event3d - the event that caused this
      */
-    stopDrag(control: InteractiveMarkerControl, event3d: any): void;
+    stopDrag(control: InteractiveMarkerControl, event3d: event3D): void;
   }
 
   export class InteractiveMarkerClient {
@@ -489,7 +489,7 @@ declare namespace ROS3D {
      * @param menuEntryID (optional) - the menu entry ID that is associated
      * @param controlName - the name of the control
      */
-    sendFeedback(eventType: string, clickPosition?: any, menuEntryID?: any, controlName?: string)
+    sendFeedback(eventType: string, clickPosition?: any, menuEntryID?: any, controlName?: string): void;
 
     /**
      * Set the pose from the client based on the given event.
@@ -731,7 +731,7 @@ declare namespace ROS3D {
      * @param event3D - the 3D mouse event information
      * @returns if an event was canceled
      */
-    notify(target: any, type: any, event3D: any): boolean;
+    notify(target: any, type: any, event3D: event3D): boolean;
 
     /**
      * Process the particular DOM even that has occurred based on the mouse's position in the scene.
@@ -739,7 +739,6 @@ declare namespace ROS3D {
      * @param domEvent - the DOM event to process
      */
     processDomEvent(domEvent: any): void;
-
   }
 
   export class OccupancyGrid extends THREE.Mesh {
@@ -762,13 +761,13 @@ declare namespace ROS3D {
 
   export class OccupancyGridClient {
     /**
- * An occupancy grid client that listens to a given map topic.
- *
- * Emits the following events:
- *  * 'change' - there was an update or change in the marker
- *
- * @constructor
- * @param options - possible keys include:
+     * An occupancy grid client that listens to a given map topic.
+     *
+     * Emits the following events:
+     *  * 'change' - there was an update or change in the marker
+     *
+     * @constructor
+     * @param options - possible keys include:
      *   * ros - the ROSLIB.Ros connection handle
      *   * topic (optional) - the map topic to listen to
      *   * continuous (optional) - if the map should be continuously loaded (e.g., for SLAM)
@@ -995,7 +994,7 @@ declare namespace ROS3D {
 
     decode64(x: any[]): any[];
 
-    read_point(msg, index: number, data_view): any[];
+    read_point(msg: any, index: number, data_view: any): any[];
   }
 
   export class Polygon {
@@ -1183,11 +1182,11 @@ declare namespace ROS3D {
   }
 
   export class Viewer {
-		/**
-		 * A Viewer can be used to render an interactive 3D scene to a HTML5 canvas.
-		 *
-		 * @constructor
-		 * @param options - possible keys include:
+    /**
+     * A Viewer can be used to render an interactive 3D scene to a HTML5 canvas.
+     *
+     * @constructor
+     * @param options - possible keys include:
          *   * divID - the ID of the div to place the viewer in
          *   * width - the initial width, in pixels, of the canvas
          *   * height - the initial height, in pixels, of the canvas
@@ -1198,7 +1197,7 @@ declare namespace ROS3D {
          *      * x - x-coordinate
          *      * y - y-coordinate
          *      * z - z-coordinate
-		 */
+     */
     constructor(options: {
       divID: string,
       width: number,
@@ -1216,12 +1215,12 @@ declare namespace ROS3D {
     // getter
     public scene: THREE.Scene;
 
-		/**
-		 * Add the given THREE Object3D to the global scene in the viewer.
-		 *
-		 * @param object - the THREE Object3D to add
+    /**
+     * Add the given THREE Object3D to the global scene in the viewer.
+     *
+     * @param object - the THREE Object3D to add
          * @param selectable - (optional) - if the object should be added to the selectable list
-		 */
+     */
     addObject(object: THREE.Object3D, selectable?: boolean): void;
   }
 
@@ -1244,7 +1243,7 @@ declare namespace ROS3D {
    * @param planeNormal - the normal of the plane
    * @returns the intersection point
    */
-  export function intersectPlane(mouseRay, planeOrigin, planeNormal): THREE.Vector3;
+  export function intersectPlane(mouseRay: THREE.Ray, planeOrigin: THREE.Vector3, planeNormal: THREE.Vector3): THREE.Vector3;
 
   /**
    * Find the closest point on targetRay to any point on mouseRay. Math taken from
@@ -1254,7 +1253,7 @@ declare namespace ROS3D {
    * @param mouseRay - the mouse ray
    * @param the closest point between the two rays
    */
-  export function findClosestPoint(targetRay, mouseRay): THREE.Vector3;
+  export function findClosestPoint(targetRay: THREE.Ray, mouseRay: THREE.Ray): THREE.Vector3;
 
   /**
    * Find the closest point between the axis and the mouse.
@@ -1264,7 +1263,15 @@ declare namespace ROS3D {
    * @param mousePos - the mouse position
    * @returns the closest axis point
    */
-  export function closestAxisPoint(axisRay, camera: THREE.Camera, mousePos): THREE.Vector3;
+  export function closestAxisPoint(axisRay: THREE.Ray, camera: THREE.Camera, mousePos: THREE.Vector2): THREE.Vector3;
+
+  export interface event3D {
+    mousePos: THREE.Vector2;
+    mouseRay: THREE.Ray;
+    domEvent: any;
+    camera: THREE.Camera;
+    intersection: THREE.Intersection;
+  }
 }
 
 declare module "ROS3D" {

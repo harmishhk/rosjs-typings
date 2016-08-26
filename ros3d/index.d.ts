@@ -1089,8 +1089,9 @@ declare namespace ROS3D {
     });
 
     // getter
-    public frameID: string;
-    public object: THREE.Object3D;
+    protected tfClient: ROSLIB.TFClient;
+    protected frameID: string;
+    protected object: THREE.Object3D;
 
     /**
      * Set the pose of the associated model.
@@ -1100,6 +1101,8 @@ declare namespace ROS3D {
     updatePose(pose: ROSLIB.Pose): void;
 
     unsubscribeTf(): void;
+
+    protected tfUpdate: (msg: ROSLIB.Transform) => void;
   }
 
   export class TriangleList {

@@ -207,6 +207,47 @@ declare namespace GeometryMsgs {
   }
 }
 
+declare namespace HANPMsgs {
+  export interface PathArray extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    ids: number[];
+    paths: NavMsgs.Path[];
+  }
+
+  export interface TrackedHuman extends ROSLIB.Message {
+    track_id: number;
+    segments: TrackedSegment[];
+  }
+
+  export interface TrackedHumans extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    humans: TrackedHuman[];
+  }
+
+  export interface TrackedSegment extends ROSLIB.Message {
+    type: TrackedSegmentType;
+    pose: GeometryMsgs.PoseWithCovariance;
+    twist: GeometryMsgs.TwistWithCovariance;
+    accel: GeometryMsgs.AccelWithCovariance;
+  }
+
+  export enum TrackedSegmentType { }
+  export const HEAD: TrackedSegmentType;
+  export const TORSO: TrackedSegmentType;
+  export const RIGHT_SHOULDER: TrackedSegmentType;
+  export const RIGHT_ELBOW: TrackedSegmentType;
+  export const RIGHT_WRIST: TrackedSegmentType;
+  export const RIGHT_HIP: TrackedSegmentType;
+  export const RIGHT_KNEE: TrackedSegmentType;
+  export const RIGHT_ANKLE: TrackedSegmentType;
+  export const LEFT_SHOULDER: TrackedSegmentType;
+  export const LEFT_ELBOW: TrackedSegmentType;
+  export const LEFT_WRIST: TrackedSegmentType;
+  export const LEFT_HIP: TrackedSegmentType;
+  export const LEFT_KNEE: TrackedSegmentType;
+  export const LEFT_ANKLE: TrackedSegmentType;
+}
+
 declare namespace NavMsgs {
   export interface GridCells extends ROSLIB.Message {
     // An array of cells in a 2D grid

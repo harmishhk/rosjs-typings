@@ -1,0 +1,9 @@
+{
+  "name": "roslib",
+  "main": "index.d.ts",
+  "homepage": "https://github.com/harmishhk/rosjs-typings/roslib",
+  "version": "0.1.0",
+  "globalDependencies": {
+    "rosmsgs": "file:../rosmsgs/typings.json"
+  }
+}

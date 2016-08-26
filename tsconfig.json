@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "noImplicitAny": true,
+    "preserveConstEnums": true
+  },
+  "files": [
+    "index.d.ts",
+    "typings/index.d.ts"
+  ]
+}

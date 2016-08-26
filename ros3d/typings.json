@@ -1,0 +1,10 @@
+{
+  "name": "ros3d",
+  "main": "index.d.ts",
+  "homepage": "https://github.com/harmishhk/rosjs-typings/ros3d",
+  "version": "0.1.0",
+  "globalDependencies": {
+    "roslib": "file:../roslib/typings.json",
+    "three": "registry:dt/three#0.0.0+20160802154944"
+  }
+}

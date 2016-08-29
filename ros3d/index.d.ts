@@ -77,7 +77,7 @@ declare namespace ROS3D {
      *
      * @param hex - the hex value of the color to use
      */
-    setColor(hex: string): void;
+    setColor(hex: number): void;
 
     /**
      * Set the direction of this arrow to that of the given vector.
@@ -171,7 +171,7 @@ declare namespace ROS3D {
      */
     constructor(options?: {
       num_cells?: number,
-      color?: THREE.Color,
+      color?: number | string,
       lineWidth?: number,
       cellSize?: number
     });
@@ -577,7 +577,7 @@ declare namespace ROS3D {
       ros: ROSLIB.Ros,
       topic: string,
       tfClient: ROSLIB.TFClient,
-      color?: THREE.Color,
+      color?: THREE.Color | number | string | { r: number, g: number, b: number },
       texture?: string,
       rootObject?: THREE.Object3D,
       size?: number,
@@ -754,7 +754,7 @@ declare namespace ROS3D {
      */
     constructor(options: {
       message: ROSLIB.Message,
-      color?: THREE.Color,
+      color?: { r: number, g: number, b: number },
       opacity?: number
     });
   }
@@ -784,7 +784,7 @@ declare namespace ROS3D {
       tfClient?: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
       offsetPose?: ROSLIB.Pose,
-      color?: THREE.Color,
+      color?: { r: number, g: number, b: number },
       opacity?: number
     });
 
@@ -815,7 +815,7 @@ declare namespace ROS3D {
       tfClient: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
       keep?: number,
-      color?: THREE.Color,
+      color?: number | string,
       length?: number,
       headLength?: number,
       shaftDiameter?: number,
@@ -915,7 +915,7 @@ declare namespace ROS3D {
       topic: string,
       tfClient: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
-      color?: THREE.Color
+      color?: number | string
     });
   }
 
@@ -963,7 +963,7 @@ declare namespace ROS3D {
       topic: string,
       tfClient: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
-      color?: THREE.Color,
+      color?: number | string,
       radius?: number
     });
   }
@@ -1014,7 +1014,7 @@ declare namespace ROS3D {
       topic: string,
       tfClient: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
-      color?: THREE.Color
+      color?: number | string
     });
   }
 
@@ -1039,7 +1039,7 @@ declare namespace ROS3D {
       topic: string,
       tfClient: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
-      color?: THREE.Color,
+      color?: number | string,
       length?: number,
       headLength?: number,
       shaftDiameter?: number,
@@ -1065,7 +1065,7 @@ declare namespace ROS3D {
       topic: string,
       tfClient: ROSLIB.TFClient,
       rootObject?: THREE.Object3D,
-      color?: THREE.Color,
+      color?: number | string,
       length?: number
     });
   }
@@ -1127,7 +1127,7 @@ declare namespace ROS3D {
      *
      * @param hex - the hex value of the color to set
      */
-    setColor(hex: string): void;
+    setColor(hex: number): void;
   }
 
   export class Urdf {
@@ -1225,6 +1225,14 @@ declare namespace ROS3D {
          * @param selectable - (optional) - if the object should be added to the selectable list
      */
     addObject(object: THREE.Object3D, selectable?: boolean): void;
+
+    /**
+     * Resize 3D viewer
+     *
+     * @param width - new width value
+     * @param height - new height value
+     */
+    resize(width: number, height: number): void;
   }
 
   /**

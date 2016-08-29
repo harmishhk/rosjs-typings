@@ -1,2 +1,5 @@
 # Dependencies
 typings/
+
+#Editor
+.vscode/

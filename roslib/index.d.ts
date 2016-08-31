@@ -498,6 +498,8 @@ declare namespace ROSLIB {
       orientation: Quaternion
     });
 
+    constructor();
+
     /**
      * Apply a transform against this pose.
      *

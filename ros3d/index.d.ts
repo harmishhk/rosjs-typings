@@ -782,13 +782,16 @@ declare namespace ROS3D {
       topic?: string,
       continuous?: boolean,
       tfClient?: ROSLIB.TFClient,
-      rootObject?: THREE.Object3D,
+      rootObject?: THREE.Object3D | THREE.Scene,
       offsetPose?: ROSLIB.Pose,
       color?: { r: number, g: number, b: number },
       opacity?: number
     });
 
-    currentGrid: ROS3D.OccupancyGrid;
+    // getter
+    protected tfClient: ROSLIB.TFClient;
+    protected currentGrid: ROS3D.OccupancyGrid | ROS3D.SceneNode;
+    protected rootObject: THREE.Object3D | THREE.Scene;
   }
 
   export class Odometry {
@@ -844,6 +847,11 @@ declare namespace ROS3D {
       autoRotate?: boolean,
       autoRotateSpeed?: number
     });
+
+    // getter
+    public userZoomSpeed: number;
+    public userRotateSpeed: number;
+    public autoRotateSpeed: number;
 
     /**
      * Rotate the camera down by the given angle.
@@ -1217,6 +1225,9 @@ declare namespace ROS3D {
 
     // getter
     public scene: THREE.Scene;
+    public renderer: THREE.WebGLRenderer;
+    public camera: THREE.PerspectiveCamera;
+    protected cameraControls: ROS3D.OrbitControls;
 
     /**
      * Add the given THREE Object3D to the global scene in the viewer.
@@ -1282,6 +1293,8 @@ declare namespace ROS3D {
     domEvent: any;
     camera: THREE.Camera;
     intersection: THREE.Intersection;
+
+    stopPropogation: () => void;
   }
 }
 

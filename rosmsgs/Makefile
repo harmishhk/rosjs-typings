@@ -1,4 +1,4 @@
-all: stop prepare build run
+all: prepare build
 
 .PHONY: prepare build run stop
 

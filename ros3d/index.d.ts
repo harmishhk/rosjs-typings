@@ -1097,9 +1097,9 @@ declare namespace ROS3D {
     });
 
     // getter
-    protected tfClient: ROSLIB.TFClient;
-    protected frameID: string;
-    protected object: THREE.Object3D;
+    public tfClient: ROSLIB.TFClient;
+    public frameID: string;
+    public object: THREE.Object3D;
 
     /**
      * Set the pose of the associated model.

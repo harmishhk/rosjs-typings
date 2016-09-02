@@ -1,1 +1,21 @@
-../tsconfig.json
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "module": "amd",
+    "outFile": "./build/rosmsgs.js",
+    "preserveConstEnums": true,
+    "pretty": true,
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "files": [
+    "typings/index.d.ts",
+    "src/geometryMsgs.ts",
+    "src/hanpMsgs.ts",
+    "src/navMsgs.ts",
+    "src/stdMsgs.ts",
+    "src/stdSrvs.ts",
+    "src/tfWebRepublisher.d.ts"
+  ]
+}

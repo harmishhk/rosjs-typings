@@ -45,6 +45,30 @@ namespace HANPMsgs {
     }) { super(values) }
   }
 
+  export class Trajectory extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    poses: GeometryMsgs.PoseStamped[];
+    twists: GeometryMsgs.TwistStamped[];
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      poses: GeometryMsgs.PoseStamped[];
+      twists: GeometryMsgs.TwistStamped[];
+    }) { super(values) }
+  }
+
+  export class TrajectoryArray extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    ids: number[];
+    trajectories: HANPMsgs.Trajectory[];
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      ids: number[];
+      trajectories: HANPMsgs.Trajectory[];
+    }) { super(values) }
+  }
+
   export enum TrackedSegmentType { }
   export const HEAD: TrackedSegmentType = 0;
   export const TORSO: TrackedSegmentType = 1;

@@ -45,15 +45,27 @@ namespace HANPMsgs {
     }) { super(values) }
   }
 
+  export class TrajectoryPoint extends ROSLIB.Message {
+    transform: GeometryMsgs.Transform;
+    velocity: GeometryMsgs.Twist;
+    acceleration: GeometryMsgs.Twist;
+    time_from_start: StdMsgs.Duration;
+
+    constructor(values: {
+      transform: GeometryMsgs.Transform;
+      velocity: GeometryMsgs.Twist;
+      acceleration: GeometryMsgs.Twist;
+      time_from_start: StdMsgs.Duration;
+    }) { super(values) }
+  }
+
   export class Trajectory extends ROSLIB.Message {
     header: StdMsgs.Header;
-    poses: GeometryMsgs.PoseStamped[];
-    twists: GeometryMsgs.TwistStamped[];
+    points: HANPMsgs.TrajectoryPoint[];
 
     constructor(values: {
       header: StdMsgs.Header;
-      poses: GeometryMsgs.PoseStamped[];
-      twists: GeometryMsgs.TwistStamped[];
+      points: HANPMsgs.TrajectoryPoint[];
     }) { super(values) }
   }
 

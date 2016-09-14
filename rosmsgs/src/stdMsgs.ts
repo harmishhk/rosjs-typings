@@ -73,7 +73,7 @@ namespace StdMsgs {
     //  * stamp.sec: seconds (stamp_secs) since epoch
     //  * stamp.nsec: nanoseconds since stamp_secs
     //  time-handling sugar is provided by the client library
-    stamp: { sec: number, nsec: number };
+    stamp: { secs: number, nsecs: number };
     // Frame this data is associated with
     //  0: no frame
     //  1: global frame
@@ -81,7 +81,7 @@ namespace StdMsgs {
 
     constructor(values: {
       seq: number;
-      stamp: { sec: number, nsec: number };
+      stamp: { secs: number, nsecs: number };
       frame_id: string;
     }) { super(values) }
   }

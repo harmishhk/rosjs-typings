@@ -1,13 +1,45 @@
 namespace HANPMsgs {
-  export class PathArray extends ROSLIB.Message {
+  export class HumanPath extends ROSLIB.Message {
     header: StdMsgs.Header;
-    ids: number[];
-    paths: NavMsgs.Path[];
+    id: number;
+    path: NavMsgs.Path;
 
     constructor(values: {
       header: StdMsgs.Header;
-      ids: number[];
-      paths: NavMsgs.Path[];
+      id: number;
+      path: NavMsgs.Path;
+    }) { super(values) }
+  }
+
+  export class HumanPathArray extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    paths: HANPMsgs.HumanPath[];
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      paths: HANPMsgs.HumanPath[];
+    }) { super(values) }
+  }
+
+  export class HumanTrajectory extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    id: number;
+    trajectory: HANPMsgs.Trajectory;
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      id: number;
+      trajectory: HANPMsgs.Trajectory;
+    }) { super(values) }
+  }
+
+  export class HumanTrajectoryArray extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    trajectories: HANPMsgs.HumanTrajectory[];
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      trajectories: HANPMsgs.HumanTrajectory[];
     }) { super(values) }
   }
 
@@ -45,42 +77,6 @@ namespace HANPMsgs {
     }) { super(values) }
   }
 
-  export class TrajectoryPoint extends ROSLIB.Message {
-    transform: GeometryMsgs.Transform;
-    velocity: GeometryMsgs.Twist;
-    acceleration: GeometryMsgs.Twist;
-    time_from_start: StdMsgs.Duration;
-
-    constructor(values: {
-      transform: GeometryMsgs.Transform;
-      velocity: GeometryMsgs.Twist;
-      acceleration: GeometryMsgs.Twist;
-      time_from_start: StdMsgs.Duration;
-    }) { super(values) }
-  }
-
-  export class Trajectory extends ROSLIB.Message {
-    header: StdMsgs.Header;
-    points: HANPMsgs.TrajectoryPoint[];
-
-    constructor(values: {
-      header: StdMsgs.Header;
-      points: HANPMsgs.TrajectoryPoint[];
-    }) { super(values) }
-  }
-
-  export class TrajectoryArray extends ROSLIB.Message {
-    header: StdMsgs.Header;
-    ids: number[];
-    trajectories: HANPMsgs.Trajectory[];
-
-    constructor(values: {
-      header: StdMsgs.Header;
-      ids: number[];
-      trajectories: HANPMsgs.Trajectory[];
-    }) { super(values) }
-  }
-
   export enum TrackedSegmentType { }
   export const HEAD: TrackedSegmentType = 0;
   export const TORSO: TrackedSegmentType = 1;
@@ -96,6 +92,40 @@ namespace HANPMsgs {
   export const LEFT_HIP: TrackedSegmentType = 11;
   export const LEFT_KNEE: TrackedSegmentType = 12;
   export const LEFT_ANKLE: TrackedSegmentType = 13;
+
+  export class Trajectory extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    points: HANPMsgs.TrajectoryPoint[];
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      points: HANPMsgs.TrajectoryPoint[];
+    }) { super(values) }
+  }
+
+  export class TrajectoryArray extends ROSLIB.Message {
+    header: StdMsgs.Header;
+    trajectories: HANPMsgs.Trajectory[];
+
+    constructor(values: {
+      header: StdMsgs.Header;
+      trajectories: HANPMsgs.Trajectory[];
+    }) { super(values) }
+  }
+
+  export class TrajectoryPoint extends ROSLIB.Message {
+    transform: GeometryMsgs.Transform;
+    velocity: GeometryMsgs.Twist;
+    acceleration: GeometryMsgs.Twist;
+    time_from_start: { secs: number, nsecs: number };
+
+    constructor(values: {
+      transform: GeometryMsgs.Transform;
+      velocity: GeometryMsgs.Twist;
+      acceleration: GeometryMsgs.Twist;
+      time_from_start: { secs: number, nsecs: number };
+    }) { super(values) }
+  }
 }
 
 declare module 'HANPMsgs' {

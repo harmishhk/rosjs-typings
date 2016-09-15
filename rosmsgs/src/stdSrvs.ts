@@ -11,7 +11,7 @@ namespace StdSrvs {
     data: boolean; //e.g. for hardware enabling / disabling
 
     constructor(values: {
-      data: boolean
+      data: boolean;
     }) { super(values) }
   }
 

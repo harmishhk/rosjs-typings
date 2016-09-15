@@ -11,6 +11,7 @@
   },
   "files": [
     "typings/index.d.ts",
+    "src/dynamicReconfigure.ts",
     "src/geometryMsgs.ts",
     "src/hanpMsgs.ts",
     "src/navMsgs.ts",

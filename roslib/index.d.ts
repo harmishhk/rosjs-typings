@@ -21,7 +21,7 @@ declare namespace ROSLIB {
      *   * transportLibrary (optional) - one of 'websocket' (default), 'socket.io' or RTCPeerConnection instance controlling how the connection is created in `connect`.
      *   * transportOptions (optional) - the options to use use when creating a connection. Currently only used if `transportLibrary` is RTCPeerConnection.
      */
-    constructor(options: {
+    constructor(options?: {
       url?: string,
       groovyCompatibility?: boolean,
       transportLibrary?: string,

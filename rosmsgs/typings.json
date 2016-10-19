@@ -2,7 +2,7 @@
   "name": "rosmsgs",
   "files": ["build/rosmsgs.d.ts", "src/tfWebRepublisher.d.ts"],
   "homepage": "https://github.com/harmishhk/rosjs-typings/rosmsgs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "globalDependencies": {
     "roslib": "file:../roslib/typings.json"
   }

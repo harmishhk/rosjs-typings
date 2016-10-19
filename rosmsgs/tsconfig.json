@@ -11,9 +11,11 @@
   },
   "files": [
     "typings/index.d.ts",
+    "src/actionLibMsgs.ts",
     "src/dynamicReconfigure.ts",
     "src/geometryMsgs.ts",
     "src/hanpMsgs.ts",
+    "src/moveBaseMsgs.ts",
     "src/navMsgs.ts",
     "src/stdMsgs.ts",
     "src/stdSrvs.ts",

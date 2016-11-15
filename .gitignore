@@ -5,4 +5,5 @@ typings/
 .vscode/
 
 #Build
-build/
+**/build/**
+!rosmsgs/build/rosmsgs.d.ts

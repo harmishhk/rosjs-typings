@@ -853,6 +853,7 @@ declare namespace ROS3D {
     public userZoomSpeed: number;
     public userRotateSpeed: number;
     public autoRotateSpeed: number;
+    public center: THREE.Vector3;
 
     /**
      * Rotate the camera down by the given angle.
@@ -1229,7 +1230,7 @@ declare namespace ROS3D {
     public scene: THREE.Scene;
     public renderer: THREE.WebGLRenderer;
     public camera: THREE.PerspectiveCamera;
-    protected cameraControls: ROS3D.OrbitControls;
+    public cameraControls: ROS3D.OrbitControls;
 
     /**
      * Add the given THREE Object3D to the global scene in the viewer.

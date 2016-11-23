@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "module": "amd",
+    "outFile": "./build/pr2msgs.js",
+    "preserveConstEnums": true,
+    "pretty": true,
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "files": [
+    "typings/index.d.ts",
+    "src/pr2Msgs.ts"
+  ]
+}

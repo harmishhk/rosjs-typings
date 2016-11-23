@@ -1,5 +1,6 @@
 # Dependencies
 typings/
+node_modules/
 
 #Editor
 .vscode/

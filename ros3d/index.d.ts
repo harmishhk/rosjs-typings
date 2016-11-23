@@ -842,6 +842,7 @@ declare namespace ROS3D {
     constructor(options: {
       scene: THREE.Scene,
       camera: THREE.Camera,
+      center?: THREE.Vector3,
       userZoomSpeed?: number,
       userRotateSpeed?: number,
       autoRotate?: boolean,
@@ -1220,7 +1221,8 @@ declare namespace ROS3D {
         x: number,
         y: number,
         z: number
-      }
+      },
+      center: THREE.Vector3
     });
 
     // getter

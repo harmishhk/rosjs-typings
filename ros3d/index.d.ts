@@ -1223,7 +1223,7 @@ declare namespace ROS3D {
         y: number,
         z: number
       },
-      center: THREE.Vector3
+      center?: THREE.Vector3
     });
 
     // getter

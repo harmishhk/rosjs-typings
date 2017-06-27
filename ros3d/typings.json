@@ -5,6 +5,6 @@
   "version": "0.1.0",
   "globalDependencies": {
     "roslib": "file:../roslib/typings.json",
-    "three": "registry:dt/three#0.0.0+20160802154944"
+    "three": "registry:dt/three#0.84.0+20170323144537"
   }
 }

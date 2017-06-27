@@ -1,15 +1,17 @@
 all: prepare build
 
-.PHONY: prepare build run stop
+.PHONY: prepare build build-image run stop
 
 prepare:
 	@docker run --rm -it -v $(CURDIR)/..:/workspace -w /workspace/rosmsgs harmish/typescript typings install --save
 
 build:
 	@docker run --rm -v $(CURDIR):/workspace harmish/typescript tsc -p /workspace || true
+
+build-image:
 	@docker build -t harmish/rosmsgs .
 
-run:
+run: build-image
 	@docker run -d --name=rosmsgs \
      --restart=unless-stopped \
      -p 80:80 \
